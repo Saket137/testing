@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link href="front.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h2>
+        Code Editor
+
+    </h2>
+
+    <div class="outer">
+        <div class="div1">
+
+            <div class="div-html">
+                <!-- <i class="fa fa-html5"></i> -->
+                <label>HTML</label>
+
+
+                <textarea id="html-code"></textarea>
+                <button style="margin-left: 545px;" onclick="copyTextHtml()">Copy HTML Code</button>
+
+
+
+            </div>
+
+            <div class="div-css">
+                <!-- <i class="fa fa-css3"></i> -->
+                <label>CSS</label>
+
+                <textarea id="css-code"></textarea>
+                <button style="margin-left: 545px;" onclick="copyTextCss()">Copy CSS Code</button>
+            </div>
+
+            <div class="div-js">
+                <!-- <i class="fa-brands fa-js"></i> -->
+                <label>JavaScript</label>
+
+                <textarea id="js-code"></textarea>
+                <button style="margin-left: 565px;" onclick="copyTextJS()">Copy JS Code</button>
+
+            </div>
+            <button class="btn-run" onclick="run()">RUN</button>
+            <a href="frontend.html"><button id="btn-save" >SAVE</button></a>
+
+            <button class="lock" onclick="myLock()">Lock</button>
+            <button class="unlock" onclick="myUnlock()">Unlock</button>
+
+
+            <button class="btn-clear" onclick="location.reload();">Clear</button>
+
+
+        </div>
+
+
+        <div class="div2">
+
+            <label>Output</label>
+
+
+
+
+
+            <p id="p1"></p>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <script>
+        function run() {
+            var htmlCode = document.getElementById("html-code").value;
+            var cssCode = document.getElementById("css-code").value;
+            var jsCode = document.getElementById("js-code").value;
+            var Output = document.getElementById("output");
+
+
+            document.getElementById("p1").innerHTML = htmlCode + "<style>" + cssCode + "</style>" + jsCode;
+
+            Output.contentWindow.eval(jsCode);
+
+
+
+
+        }
+    </script>
+
+
+    <script src="front.js"></script>
+
+</body>
+
+</html>
